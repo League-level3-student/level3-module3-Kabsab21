@@ -34,13 +34,27 @@ public class _01_StringMethods {
 
     // Given Strings s1 and s2, return the longer String
     public static String longerString(String s1, String s2) {
-        return null;
+    	String r = "equal";
+    	if( s1.length() > s2.length() ) {
+    		r = s1;
+    	}else if( s1.length() < s2.length() ) {
+    		r = s2;
+    	}
+    	return r;
     }
 
     // If String s contains the word "underscores", change all of the spaces
     // to underscores
     public static String formatSpaces(String s) {
-        return null;
+    	System.out.println(s);
+    	if( s.contains("underscores")) {
+    		s.replace(' ', '_');
+    		System.out.println(s);
+    	return s.replace(' ', '_');
+    
+    	
+    	}
+        return s;
     }
 
     // Return the name of the person whose LAST name would appear first if they
@@ -48,12 +62,34 @@ public class _01_StringMethods {
     // You cannot assume there are no extra spaces around the name, but you can
     // assume there is only one space between the first and last name
     public static String lineLeader(String s1, String s2, String s3) {
-        return null;
+    	String ret =  " ";
+    	if( s1.charAt( s1.length() - 1 ) <  s2.charAt( s2.length() - 1 ) &&  s1.charAt( s1.length() - 1 ) <   s3.charAt( s3.length() - 1 )) {
+    		ret = s1;
+    	} else if( s1.charAt( s1.length() - 1 ) >  s2.charAt( s2.length() - 1 ) &&  s2.charAt( s2.length() - 1 ) <   s3.charAt( s3.length() - 1 )) {
+    		ret = s2;
+    	} else if( s3.charAt( s3.length() - 1 ) <  s2.charAt( s2.length() - 1 ) &&  s1.charAt( s1.length() - 1 ) >   s3.charAt( s3.length() - 1 )) {
+    		ret = s3;
+    	}
+       return ret;
     }
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+    
+    	int all = 0;
+    	for( int i = 0; i < s.length(); i++) {
+    	
+    		
+    		if(Character.isDigit(s.charAt(i))) {
+    		
+    			char f = s.charAt(i);
+    			String n = new String(f+"");
+    			all+=Integer.parseInt(n);
+    	
+    		}
+    	}
+    
+        return all;
     }
 
     // Return the number of times String substring appears in String s
