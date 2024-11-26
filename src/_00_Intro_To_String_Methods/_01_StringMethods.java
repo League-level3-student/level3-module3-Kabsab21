@@ -94,30 +94,53 @@ public class _01_StringMethods {
 
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
-        return 0;
+         int numOccurances = 0;
+        int index = s.indexOf(substring);
+         while( index != -1 ) {
+             numOccurances++;
+             index = s.indexOf(substring, index + substring.length());
+         }
+         
+    
+        return numOccurances;
+      
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
-        return null;
+    	System.out.println(	);
+    	byte[] sn = s.getBytes();
+ 
+        return Utilities.encrypt(sn,(byte) key);
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
     // cyphertext (encrypted text)
     public static String decrypt(String s, char key) {
-        return null;
+
+        return Utilities.decrypt(s,(byte) key);
     }
 
     // Return the number of words in String s that end with String substring
     // You can assume there are no punctuation marks between words
     public static int wordsEndsWithSubstring(String s, String substring) {
-        return 0;
+    	  int numOccurances = 0;
+          int index = s.indexOf(substring);
+           while( index != -1 ) {
+               numOccurances++;
+               index = s.indexOf(substring, index + substring.length());
+           }
+           
+      
+          return numOccurances;
+       
     }
 
     // Given String s, return the number of characters between the first
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
+    	
         return 0;
     }
 
@@ -125,8 +148,48 @@ public class _01_StringMethods {
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
+   
+	System.out.println(s);
+    		if( s.contains(" ")) {
+    		s =	s.replace(" ", "");
+    		}
+    		if( s.contains("?")) {
+    		s = 	s.replace("?", "");
+    		}
+    		if( s.contains("-")) {
+    			s = 	s.replace("-", "");
+    		}
+    		if( s.contains(".")) {
+    			s = 	s.replace(".", "");
+    			
+    		}if( s.contains(",")) {
+    			s = 	s.replace(",", "");
+    			
+    		}if( s.contains(":")) {
+    			s = 	s.replace(":", "");
+    		}
+    		System.out.println(s);
+    		 int left = 0;
+    		 int right = s.length()-1;
+    		String sn = s.toLowerCase();
+    while( left < right ) {
+  
+    			if( sn.charAt(left) == sn.charAt(right)) {
+    				left++;
+    				right--;
+    				
+    			} else {
+    				System.out.println("F");
+    				return false;
+    			}
+    			
+    		}
+    		System.out.println("T");
         return true;
     }
+    
+    
+    
 }
 
 class Utilities {
