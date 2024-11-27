@@ -46,10 +46,10 @@ public class _01_StringMethods {
     // If String s contains the word "underscores", change all of the spaces
     // to underscores
     public static String formatSpaces(String s) {
-    	System.out.println(s);
+    	//System.out.println(s);
     	if( s.contains("underscores")) {
     		s.replace(' ', '_');
-    		System.out.println(s);
+    	//	System.out.println(s);
     	return s.replace(' ', '_');
     
     	
@@ -127,9 +127,19 @@ public class _01_StringMethods {
     	  int numOccurances = 0;
           int index = s.indexOf(substring);
            while( index != -1 ) {
+        	   
+        
+        	   if(  s.charAt(index +substring.length()) == 32 ){
                numOccurances++;
-               index = s.indexOf(substring, index + substring.length());
-           }
+            
+             //     System.out.println(index+" "+numOccurances);
+        	   
+        	   		
+        	
+        	   		
+        	   }
+        	     index = s.indexOf(substring, index + substring.length());
+           	}
            
       
           return numOccurances;
@@ -140,8 +150,27 @@ public class _01_StringMethods {
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
+  	  int distance = 0;
+  	  int last = 0;
+      int index = s.indexOf(substring);
+      int first = index + substring.length();
+      System.out.println(first);
+       while( index >= 0 ) {
+    	  
+           last = index;
+        
+              System.out.println(index+" "+last);
+    	   
+    	   		
     	
-        return 0;
+    	   		
+    	   
+    	     index = s.indexOf(substring, index + substring.length());
+       	}
+      distance = last-first;
+  
+      return distance;
+   
     }
 
     // Return true if String s is a palindrome
@@ -149,7 +178,7 @@ public class _01_StringMethods {
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
    
-	System.out.println(s);
+	//System.out.println(s);
     		if( s.contains(" ")) {
     		s =	s.replace(" ", "");
     		}
@@ -168,7 +197,7 @@ public class _01_StringMethods {
     		}if( s.contains(":")) {
     			s = 	s.replace(":", "");
     		}
-    		System.out.println(s);
+    	//	System.out.println(s);
     		 int left = 0;
     		 int right = s.length()-1;
     		String sn = s.toLowerCase();
@@ -179,12 +208,12 @@ public class _01_StringMethods {
     				right--;
     				
     			} else {
-    				System.out.println("F");
+    		//		System.out.println("F");
     				return false;
     			}
     			
     		}
-    		System.out.println("T");
+    		//System.out.println("T");
         return true;
     }
     
